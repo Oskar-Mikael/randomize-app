@@ -22,13 +22,14 @@ button {
     padding: 1rem 1.5rem;
     border-radius: 5px;
     background-color: burlywood;
-    outline: none;
     cursor: pointer;
+    border: none;
 }
 
 ol {
     padding: 0;
     margin-bottom: 5rem;
+    list-style-type: none;
 }
 
 ol>li {
@@ -43,4 +44,10 @@ ol>li {
 
 #reset {
     margin-top: 5rem;
+}
+
+@media screen and (max-width:768px) {
+    #grid {
+        grid-template-columns: 1fr;
+    }
 }
