@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+    background-color: antiquewhite;
+    font-size: 150%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+input {
+    height: 2rem;
+    width: 20rem;
+    font-size: 110%;
+    padding: 1rem 0.5rem;
+}
+
+h1 {
+    padding: 2rem;
+}
+
+button {
+    font-size: 100%;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    background-color: burlywood;
+    outline: none;
+    cursor: pointer;
+}
+
+ol {
+    padding: 0;
+    margin-bottom: 5rem;
+}
+
+ol>li {
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#reset {
+    margin-top: 5rem;
+}
