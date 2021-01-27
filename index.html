@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <link rel="icon" type="img/png" href="favicon.png">
         <title>Randomize App</title>
     </head>
@@ -17,7 +19,7 @@
                 Randomizer app
             </h1>
         </header>
-        
+
         <div id="grid">
 
             <div class="box1">
@@ -26,7 +28,9 @@
                 </h2>
                 <input id="input" autocomplete="off"><br>
                 <p id="inputError"></p>
+                <form>
                 <button type="submit" id="add">Add item</button>
+                </form>
             </div>
 
             <div class="box2">
@@ -40,13 +44,16 @@
                     Result:
                 </h2>
                 <h3 id="result"></h3>
-                <button id="submit">Randomize</button>
+                <form>
+                <button type="submit" id="submit">Randomize</button>
+                </form>
             </div>
 
         </div>
 
         <button id="reset">Reset</button>
         <script src="script.js"></script>
+        
     </body>
 
 </html>
