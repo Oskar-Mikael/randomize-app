@@ -1,47 +1,55 @@
 let items = []
 let result = ""
-let input = document.querySelector("#input");
+let input = $('#input');
 
-
-input.addEventListener('keyup', function (event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        document.querySelector("#add").click();
-    }
-
+$(function () {
+    $('form').on('submit', function(e) {
+        e.preventDefault();
+    })
 })
-document.querySelector("#add").addEventListener('click', addItem);
-document.querySelector("#submit").addEventListener('click', displayResult);
-document.querySelector("#reset").addEventListener('click', reset);
+
+$(input).on('keypress', function(e) {
+    if(e.which == 13) {
+        addItem();
+    }
+});
+
+$('#add').on('click', function(){
+    addItem()
+})
+
+$('#reset').on('click', function(){
+    window.location.reload();
+});
+
+$('#submit').on('click', function(){
+    displayResult()
+});
 
 
 
 function addItem() {
-    if (input.value.length < 1) {
-        document.querySelector("#inputError").innerHTML = "Add an item please";
+    if (input.val().length < 1) {
+        $('#inputError').html("Add an item please");
     } else {
-        items.push(document.querySelector("#input").value)
-        let ul = document.querySelector("#itemlist");
+        items.push($(input).val());
+        let ul = $('#itemlist');
         let li = document.createElement('li');
-        li.appendChild(document.createTextNode(input.value));
-        ul.appendChild(li)
-        document.querySelector("#input").style.border = "2px solid black";
-        document.querySelector("#input").value = '';
-        document.querySelector("#inputError").innerHTML = "";
+        li.append($('#input').val());
+        ul.append(li)
+        $('#input').css('border', '1px solid black');
+        $('#input').val('');
+        $('#inputError').html("")
     }
 }
-
 
 function displayResult() {
     if (items.length < 1) {
-        document.querySelector("#result").innerHTML = "Error: Add atleast 1 item"
-        document.querySelector("#input").style.border = "2px solid red"
+        $('#result').html('Error: Add atleast 1 item')
+        $('#input').css('border', '2px solid red');
     } else {
         result = items[Math.floor(Math.random() * items.length)];
-        document.querySelector("#result").innerHTML = result
+        $('#result').html(result)
     }
 }
 
-function reset() {
-    window.location.reload();
-}
