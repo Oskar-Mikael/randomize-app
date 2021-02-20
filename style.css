@@ -46,6 +46,16 @@ ol>li {
     margin-top: 5rem;
 }
 
+.delete {
+    margin-left: 2rem;
+    width: 1rem;
+    cursor: pointer;
+}
+
+.delete:hover {
+    color: rgb(0, 0, 0);
+}
+
 @media screen and (max-width:768px) {
     #grid {
         grid-template-columns: 1fr;
