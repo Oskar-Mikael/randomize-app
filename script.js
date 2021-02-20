@@ -3,28 +3,40 @@ let result = ""
 let input = $('#input');
 
 $(function () {
-    $('form').on('submit', function(e) {
+    $('form').on('submit', function (e) {
         e.preventDefault();
     })
 })
 
-$(input).on('keypress', function(e) {
-    if(e.which == 13) {
+$(input).on('keypress', function (e) {
+    if (e.which == 13) {
         addItem();
     }
 });
 
-$('#add').on('click', function(){
+$('#add').on('click', function () {
     addItem()
 })
 
-$('#reset').on('click', function(){
-    window.location.reload();
+$('#reset').on('click', function () {
+    location.reload();
 });
 
-$('#submit').on('click', function(){
+$('#submit').on('click', function () {
     displayResult()
 });
+
+$(document).on('click', 'img.delete', function () {
+    let deletedItem = $(this).closest('li')
+    let itemValue = $(this).closest('li').text()
+    let index = items.indexOf(itemValue);
+    if(index != -1) {
+        items.splice(index, 1);
+    }
+    deletedItem.remove();
+    console.log(itemValue)
+});
+
 
 
 
@@ -35,8 +47,12 @@ function addItem() {
         items.push($(input).val());
         let ul = $('#itemlist');
         let li = document.createElement('li');
+        let img = document.createElement('img') 
         li.append($(input).val());
-        ul.append(li)
+        ul.append(li);
+        li.append(img);
+        $(img).addClass('delete')
+        $(img).attr('src', '/close.png');
         $(input).css('border', '1px solid black');
         $(input).val('');
         $('#inputError').html("")
