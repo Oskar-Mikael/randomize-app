@@ -52,7 +52,7 @@ function addItem() {
         ul.append(li);
         li.append(img);
         $(img).addClass('delete')
-        $(img).attr('src', '/close.png');
+        $(img).attr('src', 'close.png');
         $(input).css('border', '1px solid black');
         $(input).val('');
         $('#inputError').html("")
