@@ -37,23 +37,46 @@ $(document).on('click', 'img.delete', function () {
     console.log(itemValue)
 });
 
+$('button#presetFootball').click(function () {
+    let ul = $('#itemlist');
+    console.log(ul)
+    items = [];
+    items.push('Oskar', 'Emil', 'Kim', 'Mads', 'Anton', 'Alexander')
+    // let ul = $('#itemlist');
+    items.forEach(function (item) {
+        let li = document.createElement('li');
+        let img = document.createElement('img')
+        li.append(item);
+        ul.append(li);
+        li.append(img);
+        $(img).addClass('delete')
+        $(img).attr('src', 'close.png');
+        $(input).css('border', '1px solid black');
+        $(input).val('');
+        $('#inputError').html("")
+    })
+});
+
+
+
+
 function addItem() {
     if (input.val().length < 1) {
         $('#inputError').html("Add an item please");
-        return
+    } else {
+        items.push($(input).val());
+        let ul = $('#itemlist');
+        let li = document.createElement('li');
+        let img = document.createElement('img')
+        li.append($(input).val());
+        ul.append(li);
+        li.append(img);
+        $(img).addClass('delete')
+        $(img).attr('src', 'close.png');
+        $(input).css('border', '1px solid black');
+        $(input).val('');
+        $('#inputError').html("")
     }
-    items.push($(input).val());
-    let ul = $('#itemlist');
-    let li = document.createElement('li');
-    let img = document.createElement('img')
-    li.append($(input).val());
-    ul.append(li);
-    li.append(img);
-    $(img).addClass('delete')
-    $(img).attr('src', 'close.png');
-    $(input).css('border', '1px solid black');
-    $(input).val('');
-    $('#inputError').html("")
 }
 
 function displayResult() {
