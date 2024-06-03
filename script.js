@@ -41,7 +41,7 @@ $('button#presetFootball').click(function () {
     let ul = $('#itemlist');
     console.log(ul)
     items = [];
-    items.push('Oskar', 'Emil', 'Kim', 'Mads', 'Mads C', 'Alex', 'Michal',)
+    items.push('Oskar', 'Emil', 'Kim', 'Mads', 'Mads C', 'Michal',)
     // let ul = $('#itemlist');
     items.forEach(function (item) {
         let li = document.createElement('li');
